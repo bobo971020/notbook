@@ -1,0 +1,117 @@
+							
+							#################################
+							# 	Author: liubo				#		
+							#	Theme:	netbook 			#
+							#	GitHub:9827817382qq.com		#
+							#	Date:2018.10.11				#
+							#################################
+
+***************************************************************************************************************************************************************************************
+
+github账号:982781738@qq.com
+github密码:<myname>521..
+
+
+linux基本命令
+	echo $PATH	## 打印环境变量
+	ps -ef 监控系统进程
+        	ps -ef | grep sshd   		 ## 查看sshd服务是否正常运行
+        	ps -ef | grep mysqld  		 ## 查看mysqld服务是否正常运行
+        	ps -ef | grep httpd 		 ## 查看apache进程是否正常运行
+        	ps -ef | grep tomcat     	## 查看tomcat进程是否正常运行
+    	netstat 查看端口
+        	netstat -an |grep 22    ## 查看sshd端口是否正常
+        	netstat -an |grep 3306  ## 查看mysqld端口是否正常
+        	netstat -an |grep 80    ## 查看apache端口是否正常
+        	netstat -an |grep 8080  ## 查看tomcat端口是否正常
+
+ubuntu常用工具 
+	iotop		## 磁盘工具
+	htop		## 资源管理器
+	iftop		## 流量监控 iftop -P -i <wlp3s0>
+	tree		## 树状显示目录结构tree
+	w3m			## 终端浏览器
+
+Chrome安装
+	cd /tmp 	## 切换到临时目录
+	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb	## 下载deb安装包 	
+	sudo dpkg -i *.deb	## 安装Chrome
+	
+Git 使用
+	sudo apt-get install git				## 安装git
+	git config --global user.email <"you email">	## 配置用户邮箱
+	git config --global user.name <"you name">		## 配置用户名
+	git init <"dirpath"> 					## 创建一个仓库
+	git add <"filename">					## 添加一个文件
+	git status 								## 查看git状态
+	git commit <"filename"> -m <"info">		## 提交修改
+	git commit -a -m <"info">				## 添加到缓存区并提交
+	git log									## 查看提交日志（最近一次，上一次，最早一次）
+		--pretty=oneline					## 可选参数 简化输出内容
+	git reflog								## 查看命令历史记录		
+	git reset --hard HEAD^					## 回退到上个版本
+	git reset --hard HEAD^ 					## 回退到上上个版本
+	git reset --hard HEAD~100				## 回退到上100个版本
+	git reset --hard 62c57					## 回退到版本id为62c57开头的版本
+	git checkout -- <"filename">			## 撤销修改
+	git rm <"filename">						## 删除文件
+	git remote add <"origin-name"> git@<server-name>:<github-name/path>.git		## 关联远程库
+	git remote rm <"origin-name">			## 删除远程库
+	git push -u <"origin-name"> master		## 推送master所有内容，第一次需要参数 -u 绑定
+	git clon git@githun.com:username/path	## 克隆远程库到本地
+	git branch dev							## 创建dev分支
+	git checkout dev						## 切换到dev分支
+	git checkout -b dev						## 创建并切换到dev分支
+	git branch								## 查看当前分支
+	git marge dev							## 合并dev分支到master
+
+	
+配置更新源
+	sudo vim /etc/apt/sources.list
+	选择镜像并替换：https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
+
+
+配置apache2
+	sudo apt-get install apache2								## 安装anache2
+	sudo vim /etc/apache2/apache2.conf							## 配置apache2端口
+		文本末尾添加：  ServerName localhost:80					## 默认端口
+				DirectoryIndex index.html index.htm index.php
+	启动apache2服务：sudo /etc/init.d/apache2 start				## 启动apache2服务
+						  					  stop				## 停止apache2服务
+	
+alias命令使用
+	alias newCmd="Cmd"	## 创建新命令（临时命令，重启后失效）
+	unalias Cmd			## 删除已创建的的命令
+	alias -p			## 列出所有alias命令
+	sudo vim ~/.bashrc	## 创建永久生效命令
+		# some more ls aliases 文本下添加永久命令
+
+
+ssh配置
+	sudo apt-get install openssh-server	## 安装ssh服务
+	sudo apt-get install openssh-client	## 安装ssh客户端
+	sudo ps -e | grep ssh			## 查看ssh服务是否启动
+	ssh -l [用户名][远程ip]			## 远程连接
+	ssh prot：22					## ssh默认端口22
+
+	 
+性能测试知识
+
+	性能测试有那些测试方法
+	 性能测试，负载测试，压力测试，并发测试，可靠测试，实效恢复测试
+
+	1，性能测试
+		通过工具模拟各种 正常、峰值、负载情况下的各项系统性能指标的测试
+		1）系统负载预期值
+		2）系统响应时间预期值
+			代码质量，数据库读写，cup，网络，磁盘，兼容，
+			操作系统等都会影响系统性能的瓶颈
+					
+	2，负载测试
+		通过工具模拟各种工作负载情况下，负载持续
+		上升时的各项系统性能的变化情况的测试
+
+	3，压力测试
+		确定一个系统的瓶颈点之后，获得系统的能提供的最大性能服务级别的测试
+		任何是系统崩溃的测试都可以叫做压力测试
+	

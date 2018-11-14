@@ -92,7 +92,7 @@ ssh配置
 	sudo apt-get install openssh-client	## 安装ssh客户端
 	sudo ps -e | grep ssh			## 查看ssh服务是否启动
 	ssh -l [用户名][远程ip]			## 远程连接
-	ssh prot：22					## ssh默认端口22
+	ssh prot：22				## ssh默认端口22
 
 	 
 性能测试知识
@@ -114,4 +114,6 @@ ssh配置
 	3，压力测试
 		确定一个系统的瓶颈点之后，获得系统的能提供的最大性能服务级别的测试
 		任何是系统崩溃的测试都可以叫做压力测试
-	
+Appium方法
+	driver.find_element_by_android_uiautomator('new UISelector().text("CustomView")')	获取text文本
+		
